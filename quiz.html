@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>QCM</title>
+</head>
+<body>
+  <header>
+    <div class="titre">Quiz OpenTDB</div>
+    <div id="scoreActuel" class="score-actuel">Score : 0</div>
+  </header>
+
+  <main>
+    <div class="carte" id="carteQuiz">
+      <div class="entete-question">
+        <div>Question <span id="numQuestion">0</span> / <span id="totalQuestions">0</span></div>
+        <div>Temps : <span id="tempsRestant">00</span>s</div>
+      </div>
+
+      <div id="texteQuestion" class="question">Chargement…</div>
+      <div id="zoneReponses" class="reponses"></div>
+
+      <div class="actions">
+        <button id="btnRetour" class="btn-secondaire">⬅ Retour</button>
+        <div style="display:flex; gap:8px;">
+          <button id="btnPasser" class="btn-secondaire">⏭ Passer</button>
+          <button id="btnRejouer" class="btn-principal" >Rejouer</button>
+        </div>
+      </div>
+
+      <div id="zoneFin" class="fin">
+        <h2 id="titreFinal"></h2>
+        <p id="texteFinal" class="petit"></p>
+        <div id="detailsFinal"></div>
+      </div>
+    </div>
+  </main>
+
+
+
+   <script src="js/quiz.js"></script>
+</body>
+</html>

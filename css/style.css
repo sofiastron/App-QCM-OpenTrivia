@@ -1,0 +1,88 @@
+    body { 
+        font-family: Arial;
+        background: #f4f6f8; color: #111; margin: 0; 
+    }
+    header { 
+        background: #262b33; color: white;
+        padding: 12px 18px; 
+        display: flex; 
+        justify-content: space-between;
+        align-items: center; 
+        position: sticky;
+        top: 0; }
+    header .titre { 
+        font-weight: bold;
+        font-size: 18px; }
+    header .score-actuel { 
+        background: white; 
+        color: #222;
+         padding: 6px 10px; 
+         border-radius: 6px; 
+         font-weight: 600; }
+    main { 
+        max-width: 800px; 
+        margin: 30px auto;
+         padding: 20px; }
+    .carte { 
+        background: white;
+        
+        border-radius: 8px;
+         padding: 20px;
+        box-shadow: 0 6px 20px rgba(20,20,20,0.06); }
+    .entete-question {
+         display: flex; 
+         justify-content: space-between; 
+         margin-bottom: 14px; 
+         font-weight: 600; 
+         color: #555; }
+    .question { 
+        font-size: 20px; 
+        margin: 16px 0; }
+    .reponses { 
+        display: grid; 
+        grid-template-columns: 1fr; 
+        gap: 10px; }
+    .btn-reponse { padding: 12px; 
+        border-radius: 8px;
+         border: 1px solid #ccc; 
+         background: #fff; 
+         cursor: pointer; 
+         text-align: left;
+          transition: all 0.2s; 
+          font-weight: bold; }
+    .btn-reponse:hover { 
+        transform: translateY(-2px); }
+    .btn-reponse[disabled] { 
+        opacity: 0.7;
+        cursor: not-allowed; }
+    .bonne { background: #c9f7d0; 
+            border-color: #7cd97a;
+         }
+    .mauvaise { background: #ffcccc; 
+        border-color: #ff8888; }
+    .actions { display: flex;
+         justify-content: space-between;
+          margin-top: 15px; }
+    button { padding: 10px 12px;
+         border-radius: 8px;
+          border: none;
+           cursor: pointer; 
+           font-weight: 600; }
+    .btn-principal { background: #1e90ff;
+         color: white; }
+    .btn-secondaire { background: transparent;
+         border: 1px solid #ccc; }
+    .fin { background: #0f1724; 
+        color: white; 
+        border-radius: 8px; 
+        padding: 16px;
+         margin-top: 20px; 
+         text-align: center; 
+         display: none; }
+    .petit { font-size: 13px;
+         color: #bbb; }
+
+
+    @media (min-width: 640px) { 
+        .reponses { grid-template-columns: repeat(2,1fr); } 
+    }
