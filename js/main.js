@@ -1,35 +1,34 @@
 const form = document.getElementById("formulaire");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  e.preventDefault(); 
 
-  var nombre = document.getElementById("nombre").value;
-  var categorie = document.getElementById("categorie").value;
-  var difficulte = document.getElementById("difficulte").value;
-  var type = document.getElementById("type").value || "multiple";
+  
+  const nombre = document.getElementById("nombre").value;
+  const categorie = document.getElementById("categorie").value;
+  const difficulte = document.getElementById("difficulte").value;
+  const type = document.getElementById("type").value || "multiple";
 
-  var url =
-    "https://opentdb.com/api.php?amount=" +
-    nombre +
-    "&category=" +
-    categorie +
-    "&difficulty=" +
-    difficulte +
-    "&type=" +
-    type;
+  
+  const url = `https://opentdb.com/api.php?amount=${nombre}&category=${categorie}&difficulty=${difficulte}&type=${type}`;
 
+  
   fetch(url)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
+    .then(res => res.json())
+    .then(data => {
+      if (!data.results || data.results.length === 0) {
+        alert("Aucune question trouvée avec ces paramètres !");
+        return;
+      }
+
+      
       localStorage.setItem("quizData", JSON.stringify(data.results));
+      localStorage.setItem("quizParams", JSON.stringify({ nombre, categorie, difficulte, type }));
 
-      document.getElementById("contenuDeQuiz").classList.remove("cache");
-
-      form.closest(".carte").classList.add("cache");
+      
+      window.location.href = "quiz.html";
     })
-    .catch(function (err) {
+    .catch(err => {
       alert("Erreur lors du chargement des questions : " + err);
     });
 });
